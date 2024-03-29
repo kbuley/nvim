@@ -79,14 +79,6 @@ return {
       end
     end
   end,
-  default_component_configs = {
-    indent = {
-      with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-      expander_collapsed = "",
-      expander_expanded = "",
-      expander_highlight = "NeoTreeExpander",
-    },
-  },
   config = function(_, opts)
     require("neo-tree").setup(opts)
     vim.api.nvim_create_autocmd("TermClose", {
