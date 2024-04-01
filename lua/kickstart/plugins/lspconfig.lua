@@ -136,7 +136,18 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        gopls = {},
+        gopls = {
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -178,6 +189,14 @@ return {
       vim.list_extend(ensure_installed, {
         "stylua", -- Used to format Lua code
         "markdownlint", -- Format markdown files
+        "gofumpt",
+        "goimports-reviser",
+        "goimports",
+        "golines",
+        "black",
+        "prettier",
+        "prettierd",
+        "isort",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
