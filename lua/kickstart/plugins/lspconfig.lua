@@ -148,6 +148,22 @@ return {
             },
           },
         },
+        golangci_lint_ls = {
+          cmd = { "golangci-lint-langserver" },
+          init_options = {
+            command = { "golangci-lint", "run", "--out-format", "json" },
+          },
+          filetypes = { "go", "gomod" },
+          root_dir = require("lspconfig").util.root_pattern(
+            ".golangci.yml",
+            ".golangci.yaml",
+            ".golangci.toml",
+            ".golangci.json",
+            "go.work",
+            "go.mod",
+            ".git"
+          ),
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -197,6 +213,8 @@ return {
         "prettier",
         "prettierd",
         "isort",
+        "golangci-lint",
+        "golangci-lint-langserver",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
