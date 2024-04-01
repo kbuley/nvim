@@ -136,6 +136,7 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
+        bashls = {},
         gopls = {
           filetypes = { "go", "gomod", "gowork", "gotmpl" },
           settings = {
@@ -215,6 +216,9 @@ return {
         "isort",
         "golangci-lint",
         "golangci-lint-langserver",
+        "shellcheck",
+        "shfmt",
+        "bash-language-server",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
