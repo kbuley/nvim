@@ -7,4 +7,9 @@ return {
       -- refer to the configuration section below
     })
   end,
+}, {
+  "nvim-telescope/telescope.nvim",
+  opts = function()
+    require("telescope").load_extension("projects")
+  end,
 }
