@@ -9,6 +9,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.netrw_liststyle = 3
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
@@ -71,5 +72,12 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- turn on termcolors
+vim.opt.background = 'dark'
+vim.opt.termguicolors = true
+
+-- backspace
+vim.opt.backspace = 'indent,eol,start'
 
 -- vim: ts=2 sts=2 sw=2 et
