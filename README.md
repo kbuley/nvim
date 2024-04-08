@@ -1,6 +1,6 @@
 # Introduction
 
-This is my personal nvim configuration, initially based on [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
+## This is my personal nvim configuration, initially based on [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
 
 ### Install External Dependencies
 
