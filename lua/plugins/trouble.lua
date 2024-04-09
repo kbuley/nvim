@@ -1,14 +1,17 @@
 return {
   'folke/trouble.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons', 'folke/todo-comments.nvim' },
   cmd = { 'TroubleToggle', 'Trouble' },
   opts = { use_diagnostic_signs = true },
   keys = {
-    { '<leader>xx', '<cmd>TroubleToggle document_diagnostics<cr>', desc = 'Document Diagnostics (Trouble)' },
-    { '<leader>xX', '<cmd>TroubleToggle workspace_diagnostics<cr>', desc = 'Workspace Diagnostics (Trouble)' },
-    { '<leader>xL', '<cmd>TroubleToggle loclist<cr>', desc = 'Location List (Trouble)' },
-    { '<leader>xQ', '<cmd>TroubleToggle quickfix<cr>', desc = 'Quickfix List (Trouble)' },
+    { '<leader>xx', '<cmd>TroubleToggle<CR>', desc = 'Toggle Trouble List' },
+    { '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<CR>', desc = 'Workspace Diagnostics (Trouble)' },
+    { '<leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>', desc = 'Document Diagnostics (Trouble)' },
+    { '<leader>xl', '<cmd>TroubleToggle loclist<CR>', desc = 'Location List (Trouble)' },
+    { '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', desc = 'Quickfix List (Trouble)' },
+    { '<leader>xt', '<cmd>TodoTrouble<CR>', desc = 'Open TODOs in trouble' },
     {
-      '[q',
+      ']q',
       function()
         if require('trouble').is_open() then
           require('trouble').previous { skip_groups = true, jump = true }
