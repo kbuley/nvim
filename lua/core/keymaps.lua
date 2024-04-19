@@ -48,4 +48,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Don't 'copy' when you delete
+vim.keymap.set('n', 'x', '"_x', { remap = false })
+vim.keymap.set('n', 'd', '"_d', { remap = false })
+vim.keymap.set('n', 'D', '"_D', { remap = false })
+vim.keymap.set('v', 'd', '"_d', { remap = false })
+
 -- vim: ts=2 sts=2 sw=2 et
