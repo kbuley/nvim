@@ -1,3 +1,6 @@
+--[[
+  An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
+--]]
 return {
 
   { -- Linting
@@ -5,15 +8,25 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
-        javascriptreact = { 'eslint_d' },
-        typescriptreact = { 'eslint_d' },
-        python = { 'pylint' },
-        go = { 'golangcilint' },
-      }
+      lint.linters_by_ft = lint.linters_by_ft or {}
+
+      lint.linters_by_ft['markdown'] = { 'markdownlint' }
+      lint.linters_by_ft['javascript'] = { 'eslint_d' }
+      lint.linters_by_ft['typescript'] = { 'eslint_d' }
+      lint.linters_by_ft['javascriptreact'] = { 'eslint_d' }
+      lint.linters_by_ft['typescriptreact'] = { 'eslint_d' }
+      lint.linters_by_ft['python'] = { 'pylint' }
+      lint.linters_by_ft['go'] = { 'golangcilint' }
+      -- lint.linters_by_ft = {
+      --         markdown = { 'markdownlint' },
+      --         javascript = { 'eslint_d' },
+      --         typescript = { 'eslint_d' },
+      --         javascriptreact = { 'eslint_d' },
+      --         typescriptreact = { 'eslint_d' },
+      --         python = { 'pylint' },
+      --         go = { 'golangcilint' },
+      --       }
+      --
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:

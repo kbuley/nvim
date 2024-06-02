@@ -1,3 +1,6 @@
+--[[
+  Lightweight yet powerful formatter plugin for Neovim
+--]]
 return {
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -23,15 +26,22 @@ return {
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         javascript = { { 'prettierd', 'prettier' } },
-        typescript = { 'prettier' },
-        javascriptreact = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        css = { 'prettier' },
-        html = { 'prettier' },
-        json = { 'prettier' },
-        yaml = { 'prettier' },
-        markdown = { 'prettier' },
+        typescript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        yaml = { { 'prettierd', 'prettier' } },
+        markdown = { { 'prettierd', 'prettier' } },
+        proto = { 'buf' },
+        htmldjango = { 'djlint' },
         sh = { 'shellcheck', 'shfmt' },
+        puppet = { 'puppet-lint' },
+        ['*'] = { 'codespell' },
+        -- Use the "_" filetype to run formatters on filetypes that don't
+        -- have other formatters configured.
+        ['_'] = { 'trim_whitespace' },
       },
     },
     config = function(_, opts)

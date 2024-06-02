@@ -29,6 +29,9 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+      -- code outline window
+      { 'stevearc/aerial.nvim' },
     },
     config = function()
       local actions = require 'telescope.actions'
@@ -77,12 +80,20 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          ['aerial'] = {
+            show_nesting = {
+              ['_'] = false,
+              json = true,
+              yaml = true,
+            },
+          },
         },
       }
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'aerial')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'

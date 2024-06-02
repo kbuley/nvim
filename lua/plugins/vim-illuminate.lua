@@ -1,3 +1,6 @@
+--[[
+  Just install the plugin and things will work just work, no configuration needed.
+--]]
 return {
   'RRethy/vim-illuminate',
   opts = {

@@ -1,16 +1,19 @@
+--[[
+  A fancy, configurable, notification manager for NeoVim
+--]]
 return {
-  "rcarriga/nvim-notify",
+  'rcarriga/nvim-notify',
   keys = {
     {
-      "<leader>un",
+      '<leader>un',
       function()
-        require("notify").dismiss({ silent = true, pending = true })
+        require('notify').dismiss { silent = true, pending = true }
       end,
-      desc = "Dismiss All Notifications",
+      desc = 'Dismiss All Notifications',
     },
   },
   opts = {
-    stages = "static",
+    stages = 'static',
     timeout = 3000,
     max_height = function()
       return math.floor(vim.o.lines * 0.75)
@@ -23,9 +26,9 @@ return {
     end,
   },
   config = function(_, opts)
-    require("notify").setup(opts)
+    require('notify').setup(opts)
   end,
   init = function()
-    vim.notify = require("notify")
+    vim.notify = require 'notify'
   end,
 }

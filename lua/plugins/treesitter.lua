@@ -1,3 +1,6 @@
+--[[
+  Nvim Treesitter configurations and abstraction layer
+--]]
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -7,7 +10,33 @@ return {
       'windwp/nvim-ts-autotag',
     },
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'yaml', 'html', 'css', 'go', 'python', 'json', 'javascript' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'html',
+        'lua',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'yaml',
+        'html',
+        'css',
+        'go',
+        'python',
+        'json',
+        'javascript',
+        'dockerfile',
+        'vue',
+        'terraform',
+        'puppet',
+        'proto',
+        'gowork',
+        'gomod',
+        'gosum',
+        'gotmpl',
+        'helm',
+        'markdown_inline',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
