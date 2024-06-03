@@ -57,4 +57,14 @@ vim.keymap.set('v', 'd', '"_d', { remap = false })
 vim.keymap.set('n', 'QQ', ':q!<enter>', { noremap = false })
 vim.keymap.set('n', '<leader>qq', ':q<CR>', { silent = true, noremap = true })
 
+vim.keymap.set('n', 'tk', ':blast<enter>', { noremap = false })
+vim.keymap.set('n', 'tj', ':bfirst<enter>', { noremap = false })
+vim.keymap.set('n', 'th', ':bprev<enter>', { noremap = false })
+vim.keymap.set('n', 'tl', ':bnext<enter>', { noremap = false })
+vim.keymap.set('n', 'td', ':bdelete<enter>', { noremap = false })
+
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et
