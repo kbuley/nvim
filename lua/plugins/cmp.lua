@@ -73,11 +73,19 @@ return {
         end),
       },
       sources = cmp.config.sources {
-        { name = 'nvim_lsp' },
+        {
+          name = 'nvim_lsp',
+          entry_filter = function(entry, _)
+            local kind = cmp.lsp.CompletionItemKind[entry:get_kind()]
+            if kind == 'Text' then
+              return false
+            end
+            return true
+          end,
+        },
         { name = 'nvim_lua' },
         { name = 'luasnip' }, -- For luasnip users.
-        -- { name = "orgmode" },
-        { name = 'buffer' },
+--        { name = 'orgmode' },
         { name = 'path' },
       },
       formatting = {
