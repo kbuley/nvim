@@ -48,6 +48,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- vim.cmd [[
+--  autocmd FocusGained * set mouse+=a
+--  autocmd FocusLost * set mouse=
+-- ]]
+
 -- Don't 'copy' when you delete
 vim.keymap.set('n', 'x', '"_x', { remap = false })
 vim.keymap.set('n', 'd', '"_d', { remap = false })
@@ -67,4 +72,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+vim.keymap.set('n', '<LeftMouse>', 'ma<LeftMouse>`a', { noremap = true })
 -- vim: ts=2 sts=2 sw=2 et
