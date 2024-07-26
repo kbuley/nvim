@@ -53,11 +53,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --  autocmd FocusLost * set mouse=
 -- ]]
 
--- Don't 'copy' when you delete
+-- Don't yank when deleting
 vim.keymap.set('n', 'x', '"_x', { remap = false })
 vim.keymap.set('n', 'd', '"_d', { remap = false })
 vim.keymap.set('n', 'D', '"_D', { remap = false })
 vim.keymap.set('v', 'd', '"_d', { remap = false })
+
+-- don't yank when pasting
+vim.keymap.set('x', 'p', 'P')
 
 vim.keymap.set('n', 'QQ', ':q!<enter>', { noremap = false })
 vim.keymap.set('n', '<leader>qq', ':q<CR>', { silent = true, noremap = true })
@@ -74,4 +77,6 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set('n', '<LeftMouse>', 'ma<LeftMouse>`a', { noremap = true })
+
+vim.keymap.set('n', '<C-q>', 'add_to_qflist')
 -- vim: ts=2 sts=2 sw=2 et
