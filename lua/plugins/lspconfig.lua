@@ -148,7 +148,9 @@ return {
         'bash-language-server',
         'black',
         'buf-language-server',
+        'codespell',
         'diagnostic-languageserver',
+        'djlint',
         'docker-compose-language-service',
         'dockerfile-language-server',
         'gofumpt',
@@ -188,7 +190,7 @@ return {
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
-            local server = servers[server_name] or {}
+            local server = servers[server_name] or {} 
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for tsserver)
