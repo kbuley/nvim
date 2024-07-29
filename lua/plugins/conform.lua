@@ -15,4 +15,16 @@ return {
       desc = "Lint",
     },
   },
+  opts = {
+    formatters_by_ft = {
+      fish = {},
+      python = { "autoflake", "black" },
+      proto = { "buf" },
+      hcl = { "hclfmt" },
+      json = { "jq" },
+      xml = { "xmlformatter" },
+      yaml = { "yamlfix" },
+      go = { "goimports-reviser", "gofumpt", "gomodifytags" },
+    },
+  },
 }
