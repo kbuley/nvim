@@ -20,5 +20,6 @@ return {
     table.insert(opts.ensure_installed, "tflint")
     table.insert(opts.ensure_installed, "puppet-editor-services")
     table.insert(opts.ensure_installed, "powershell-editor-services")
+    table.insert(opts.ensure_installed, "sourcery")
   end,
 }
