@@ -3,6 +3,6 @@ Single tabpage interface for easily cycling through diffs for all modified files
 --]]
 return {
   {
-    'sindrets/diffview.nvim',
+    "sindrets/diffview.nvim",
   },
 }
