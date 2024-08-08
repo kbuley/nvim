@@ -1,8 +1,8 @@
 return {
-  'nvim-focus/focus.nvim',
-  version = '*',
+  "nvim-focus/focus.nvim",
+  version = "*",
   config = function()
-    require('focus').setup {
+    require("focus").setup({
       enable = true, -- Enable module
       commands = true, -- Create Focus commands
       autoresize = {
@@ -27,18 +27,18 @@ return {
         cursorcolumn = false, -- Display cursorcolumn in the focussed window only
         colorcolumn = {
           enable = false, -- Display colorcolumn in the foccused window only
-          list = '+1', -- Set the comma-saperated list for the colorcolumn
+          list = "+1", -- Set the comma-saperated list for the colorcolumn
         },
         signcolumn = true, -- Display signcolumn in the focussed window only
         winhighlight = false, -- Auto highlighting for focussed/unfocussed windows
       },
-    }
-    local ignore_filetypes = { 'neo-tree', 'DiffviewFiles', 'toggleterm' }
-    local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
+    })
+    local ignore_filetypes = { "neo-tree", "DiffviewFiles", "toggleterm", "NvimTree", "dashboard" }
+    local ignore_buftypes = { "nofile", "prompt", "popup", "quickfix", "terminal" }
 
-    local augroup = vim.api.nvim_create_augroup('FocusDisable', { clear = true })
+    local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 
-    vim.api.nvim_create_autocmd('WinEnter', {
+    vim.api.nvim_create_autocmd("WinEnter", {
       group = augroup,
       callback = function(_)
         if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
@@ -47,10 +47,10 @@ return {
           vim.w.focus_disable = false
         end
       end,
-      desc = 'Disable focus autoresize for BufType',
+      desc = "Disable focus autoresize for BufType",
     })
 
-    vim.api.nvim_create_autocmd('FileType', {
+    vim.api.nvim_create_autocmd("FileType", {
       group = augroup,
       callback = function(_)
         if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
@@ -59,7 +59,7 @@ return {
           vim.b.focus_disable = false
         end
       end,
-      desc = 'Disable focus autoresize for FileType',
+      desc = "Disable focus autoresize for FileType",
     })
   end,
 }

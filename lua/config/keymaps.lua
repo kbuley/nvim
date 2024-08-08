@@ -19,7 +19,26 @@ vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
-vim.keymap.set("n", "<C-h>", [[<cmd>lua require'tmux'.move_left()<cr>]], { remap = false })
-vim.keymap.set("n", "<C-j>", [[<cmd>lua require'tmux'.move_bottom()<cr>]], { remap = false })
-vim.keymap.set("n", "<C-k>", [[<cmd>lua require'tmux'.move_top()<cr>]], { remap = false })
-vim.keymap.set("n", "<C-l>", [[<cmd>lua require'tmux'.move_right()<cr>]], { remap = false })
+-- vim.keymap.set("n", "<C-h>", [[<cmd>lua require'tmux'.move_left()<cr>]], { remap = false })
+-- vim.keymap.set("n", "<C-j>", [[<cmd>lua require'tmux'.move_bottom()<cr>]], { remap = false })
+-- vim.keymap.set("n", "<C-k>", [[<cmd>lua require'tmux'.move_top()<cr>]], { remap = false })
+-- vim.keymap.set("n", "<C-l>", [[<cmd>lua require'tmux'.move_right()<cr>]], { remap = false })
+
+-- resizing splits
+-- these keymaps will also accept a range,
+-- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
+vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
+vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
+vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
+vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
+-- moving between splits
+vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
+vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
+-- swapping buffers between windows
+vim.keymap.set("n", "<S-A-Left>", require("smart-splits").swap_buf_left)
+vim.keymap.set("n", "<S-A-Down>", require("smart-splits").swap_buf_down)
+vim.keymap.set("n", "<S-A-Up>", require("smart-splits").swap_buf_up)
+vim.keymap.set("n", "<S-A-Right>", require("smart-splits").swap_buf_right)
