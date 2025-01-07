@@ -11,6 +11,6 @@ return {
     { "<leader>tg", "<cmd>Telescope grep_string<cr>", desc = "Grep" },
     { "<leader>ts", "<cmd>Telescope live_grep<cr>", desc = "Search" },
     { "<leader>tp", "<cmd>Telescope neovim-project discover<cr>", desc = "Projects" },
-    { "<leader>tn", "<cmd>Telescope notify<cr>", desc = "Notifications " },
+    { "<leader>tn", "<cmd>Noice telescope<cr>", desc = "Notifications " },
   },
 }

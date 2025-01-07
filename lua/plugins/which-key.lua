@@ -6,6 +6,7 @@ return {
         mode = { "n", "v" },
         { "<leader>t", group = "Telescope" },
       },
+      { "<leader>T", group = "Terminal" },
     },
   },
 }

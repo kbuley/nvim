@@ -8,9 +8,11 @@ return {
       "~/Projects/*",
       "~/Projects-Personal/*",
       "~/.config/*",
-      "~/.local/share/chezmoi",
     },
     dashboard_mode = true,
+    picker = {
+      type = "telescope",
+    },
   },
   init = function()
     -- enable saving the state of plugins in the session
@@ -18,7 +20,7 @@ return {
   end,
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+    { "nvim-telescope/telescope.nvim" },
     { "Shatur/neovim-session-manager" },
   },
   lazy = false,

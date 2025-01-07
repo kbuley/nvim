@@ -27,3 +27,8 @@ vim.filetype.add({
     sls = "sls",
   },
 })
+
+-- Dashboard command
+vim.api.nvim_create_user_command("Dashboard", function()
+  Snacks.dashboard.open()
+end, {})
