@@ -3,6 +3,9 @@
 --]]
 return {
   "coffebar/neovim-project",
+  keys = {
+    { "<leader>pl", "<cmd>NeovimProjectDiscover<cr>", desc = "Project List" },
+  },
   opts = {
     projects = { -- define project roots
       "~/Projects/*",
@@ -11,7 +14,7 @@ return {
     },
     dashboard_mode = true,
     picker = {
-      type = "telescope",
+      type = "fzf-lua",
     },
   },
   init = function()
@@ -20,7 +23,6 @@ return {
   end,
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim" },
     { "Shatur/neovim-session-manager" },
   },
   lazy = false,

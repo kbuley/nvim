@@ -50,5 +50,9 @@ return {
     notifier = { enabled = true },
     statuscolumn = { enabled = true },
     bufdelete = { enabled = true },
+    indent = { enabled = true },
+    input = { enabled = true },
+    scope = { enabled = true },
+    terminal = { enabled = true },
   },
 }
