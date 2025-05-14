@@ -25,7 +25,6 @@ return {
       proto = { "buf" },
       python = { "autoflake", "black" },
       sh = { "shfmt", "shellharden" },
-      sls = { "yamlfix" },
       xml = { "xmlformatter" },
       yaml = { "yamlfix", env = {
         YAMLFIX_SEQUENCE_STYLE = "block_style",
