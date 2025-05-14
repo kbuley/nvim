@@ -1,5 +1,8 @@
 return {
   "saghen/blink.cmp",
+  dependencies = {
+    "fang2hou/blink-copilot",
+  },
   opts = {
     keymap = {
       preset = "enter",
@@ -34,7 +37,15 @@ return {
       nerd_font_variant = "normal",
     },
     sources = {
-      default = { "lsp", "snippets", "path" },
+      default = { "lsp", "copilot", "snippets", "path" },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
+        },
+      },
       transform_items = function(_, items)
         return vim.tbl_filter(function(item)
           return item.kind ~= require("blink.cmp.types").CompletionItemKind.Text
