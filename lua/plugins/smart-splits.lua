@@ -18,6 +18,7 @@ return {
         "NvimTree",
         "dashboard",
         "neo-tree",
+        "copilot-chat",
       },
       -- the default number of lines/columns to resize by at a time
       default_amount = 3,
