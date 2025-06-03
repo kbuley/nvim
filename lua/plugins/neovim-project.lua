@@ -3,14 +3,19 @@
 --]]
 return {
   "coffebar/neovim-project",
+  keys = {
+    { "<leader>pl", "<cmd>NeovimProjectDiscover<cr>", desc = "Project List" },
+  },
   opts = {
     projects = { -- define project roots
       "~/Projects/*",
       "~/Projects-Personal/*",
       "~/.config/*",
-      "~/.local/share/chezmoi",
     },
     dashboard_mode = true,
+    picker = {
+      type = "fzf-lua",
+    },
   },
   init = function()
     -- enable saving the state of plugins in the session
@@ -18,7 +23,6 @@ return {
   end,
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
     { "Shatur/neovim-session-manager" },
   },
   lazy = false,
