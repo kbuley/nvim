@@ -6,7 +6,6 @@ return {
       json = { "jsonlint" },
       proto = { "protolint", "buf_lint" },
       sls = { "saltlint" },
-      sh = { "shellharden" },
       yaml = { "yamllint" },
     },
   },

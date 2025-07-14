@@ -2,15 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Don't yank when deleting
-vim.keymap.set("n", "x", '"_x', { remap = false })
-vim.keymap.set("n", "d", '"_d', { remap = false })
-vim.keymap.set("n", "D", '"_D', { remap = false })
-vim.keymap.set("v", "d", '"_d', { remap = false })
-
--- don't yank when pasting
-vim.keymap.set("x", "p", "P")
-
 -- ADHD medication for the mouse
 vim.keymap.set("n", "<LeftMouse>", "ma<LeftMouse>`a", { noremap = true })
 
@@ -42,3 +33,9 @@ vim.keymap.set("n", "<S-A-Left>", require("smart-splits").swap_buf_left)
 vim.keymap.set("n", "<S-A-Down>", require("smart-splits").swap_buf_down)
 vim.keymap.set("n", "<S-A-Up>", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<S-A-Right>", require("smart-splits").swap_buf_right)
+
+-- Open the terminal in the current directory
+vim.keymap.del("n", "<C-/>")
+vim.keymap.set("n", "<C-/>", function()
+  Snacks.terminal()
+end, { desc = "Terminal (cwd)" })

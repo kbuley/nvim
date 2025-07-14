@@ -1,9 +1,12 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   opts = function(_, opts)
     -- formatters
+    table.insert(opts.ensure_installed, "ansible-lint")
     table.insert(opts.ensure_installed, "autoflake")
     table.insert(opts.ensure_installed, "bash-language-server")
+    table.insert(opts.ensure_installed, "biome")
+    table.insert(opts.ensure_installed, "black")
     table.insert(opts.ensure_installed, "buf")
     table.insert(opts.ensure_installed, "codespell")
     table.insert(opts.ensure_installed, "fixjson")

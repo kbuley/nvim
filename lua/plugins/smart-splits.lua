@@ -19,6 +19,7 @@ return {
         "dashboard",
         "neo-tree",
         "copilot-chat",
+        "snacks_picker_list",
       },
       -- the default number of lines/columns to resize by at a time
       default_amount = 3,

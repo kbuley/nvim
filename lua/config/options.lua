@@ -16,11 +16,13 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- backspace
 vim.opt.backspace = "indent,eol,start"
-
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
+
+-- Enable this option to avoid conflicts with Prettier.
+vim.g.lazyvim_prettier_needs_config = true
 
 vim.filetype.add({
   extension = {
