@@ -15,6 +15,12 @@ return {
         ["yaml"] = { "yamlfix", env = {
           YAMLFIX_SEQUENCE_STYLE = "block_style",
         } },
+        hcl = function(bufnr)
+          if vim.bo[bufnr].filetype == "hcl.packer" then
+            return { "packer_fmt" }
+          end
+          return { "hcl" }
+        end,
         -- Use the "*" filetype to run formatters on all filetypes.
         ["*"] = { "codespell" },
         -- Use the "_" filetype to run formatters on filetypes that don't

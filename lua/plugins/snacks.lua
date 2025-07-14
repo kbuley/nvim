@@ -46,5 +46,15 @@ return {
         { section = "startup" },
       },
     },
+    terminal = {
+      win = {
+        position = "float",
+      },
+    },
   },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+    vim.api.nvim_create_user_command("Dashboard", Snacks.dashboard.open, {})
+    require("snacks").toggle.zoom():map("<A-m>", { mode = { "n", "x", "i", "t" } })
+  end,
 }
