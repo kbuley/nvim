@@ -5,15 +5,6 @@ return {
     servers = {
       bashls = {},
       cssls = {},
-      lua_ls = {
-        Lua = {
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
-          diagnostics = {
-            disable = { "missing-fields" },
-          },
-        },
-      },
       puppet = { cmd = { "puppet-languageserver", "--stdio" } },
       sourcery = {
         init_options = {
