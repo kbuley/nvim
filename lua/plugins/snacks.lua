@@ -22,7 +22,8 @@ return {
             icon = " ",
             key = "p",
             desc = "Projects",
-            action = ":NeovimProjectDiscover",
+            --            action = ":NeovimProjectDiscover",
+            action = ":lua Snacks.dashboard.pick('projects')",
           },
           { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
           {
@@ -51,6 +52,34 @@ return {
         position = "float",
       },
     },
+    statuscolumn = {
+      enabled = true,
+      left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+      right = { "fold", "git" }, -- priority of signs on the right (high to low)
+      folds = {
+        open = false, -- show open fold icons
+        git_hl = false, -- use Git Signs hl for fold icons
+      },
+      git = {
+        -- patterns to match Git signs
+        patterns = { "GitSign", "MiniDiffSign" },
+      },
+      refresh = 50, -- refresh at most every 50ms
+    },
+    picker = {
+      dev = {
+        "~/Projects",
+        "~/Projects-Personal",
+        "~/.config",
+      },
+    },
+    dim = {},
+    indent = {},
+    lazygit = {},
+    quickfile = {},
+    scope = {},
+    scratch = {},
+    zen = {},
   },
   config = function(_, opts)
     require("snacks").setup(opts)

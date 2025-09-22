@@ -1,17 +1,13 @@
 return {
-  "LazyVim/LazyVim",
-  requires = { "catppuccin/nvim" },
-  opts = {
-    colorscheme = "catppuccin-mocha",
-  },
-  -- Remove this after the PR is fixed: https://github.com/LazyVim/LazyVim/pull/6354
+  -- Add colorschemes here
+  { "catppuccin/nvim", name = "catppuccin", lazy = false },
+  { "ellisonleao/gruvbox.nvim" },
+
+  -- Tell LazyVim which one to set as default
   {
-    "akinsho/bufferline.nvim",
-    init = function()
-      local bufline = require("catppuccin.groups.integrations.bufferline")
-      function bufline.get()
-        return bufline.get_theme()
-      end
-    end,
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin-mocha",
+    },
   },
 }

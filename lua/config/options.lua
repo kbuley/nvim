@@ -24,6 +24,10 @@ vim.opt.softtabstop = 2
 -- Enable this option to avoid conflicts with Prettier.
 vim.g.lazyvim_prettier_needs_config = true
 
+-- In case you don't want to use `:LazyExtras`,
+-- then you need to set the option below.
+vim.g.lazyvim_picker = "snacks"
+
 vim.filetype.add({
   extension = {
     sls = "sls",
