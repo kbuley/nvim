@@ -5,16 +5,11 @@
 -- ADHD medication for the mouse
 vim.keymap.set("n", "<LeftMouse>", "ma<LeftMouse>`a", { noremap = true })
 
--- disable Window keymaps
+-- -- disable Window keymaps
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
--- vim.keymap.set("n", "<C-h>", [[<cmd>lua require'tmux'.move_left()<cr>]], { remap = false })
--- vim.keymap.set("n", "<C-j>", [[<cmd>lua require'tmux'.move_bottom()<cr>]], { remap = false })
--- vim.keymap.set("n", "<C-k>", [[<cmd>lua require'tmux'.move_top()<cr>]], { remap = false })
--- vim.keymap.set("n", "<C-l>", [[<cmd>lua require'tmux'.move_right()<cr>]], { remap = false })
-
 -- resizing splits
 -- these keymaps will also accept a range,
 -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
@@ -33,7 +28,7 @@ vim.keymap.set("n", "<S-A-Left>", require("smart-splits").swap_buf_left)
 vim.keymap.set("n", "<S-A-Down>", require("smart-splits").swap_buf_down)
 vim.keymap.set("n", "<S-A-Up>", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<S-A-Right>", require("smart-splits").swap_buf_right)
-
+-- --
 -- Open the terminal in the current directory
 vim.keymap.del("n", "<C-/>")
 vim.keymap.set("n", "<C-/>", function()
