@@ -27,6 +27,14 @@ return {
         -- have other formatters configured.
         ["_"] = { "trim_whitespace" },
       },
+      formatters = {
+        codespell = {
+          prepend_args = { "--ignore-words-list", "aks" },
+          condition = function(self, ctx)
+            return ctx.filename and ctx.filename ~= ""
+          end,
+        },
+      },
     },
   },
 }
