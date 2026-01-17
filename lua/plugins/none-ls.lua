@@ -7,6 +7,10 @@ return {
       if source.filetypes and vim.tbl_contains(source.filetypes, "hcl") then
         return false
       end
+      -- Remove markdownlint to use nvim-lint instead
+      if source.name == "markdownlint-cli2" then
+        return false
+      end
       return true
     end, opts.sources or {})
   end,
