@@ -10,6 +10,37 @@ return {
         settings = {
           gopls = {
             buildFlags = { "-tags=integration" },
+            gofumpt = true,
+            codelenses = {
+              gc_details = false,
+              generate = true,
+              regenerate_cgo = true,
+              run_govulncheck = true,
+              test = true,
+              tidy = true,
+              upgrade_dependency = true,
+              vendor = true,
+            },
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+            analyses = {
+              fieldalignment = true,
+              nilness = true,
+              unusedparams = true,
+              unusedwrite = true,
+              useany = true,
+            },
+            usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+            directoryFilters = { "-.git", "-.vscode", "-.idea", "-node_modules" },
           },
           yaml = {
             schemaStore = {
@@ -31,12 +62,6 @@ return {
         },
       },
       puppet = { cmd = { "puppet-languageserver", "--stdio" } },
-      -- sourcery = {
-      --   cmd = { "sourcery", "lsp" }, -- Fix the missing cmd
-      --   init_options = {
-      --     token = "user_VW8ThOq1Rpau0TxPQMt133iD-FxtGFg5MkyrDcfhFhFZPx1l84w_sH59XGI",
-      --   },
-      -- },
     },
   },
   init = function()

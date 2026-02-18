@@ -23,10 +23,7 @@ return {
     at_edge = "wrap",
     -- Default resize amount
     default_amount = 3,
-    -- Disable built-in keymaps
-    ignored_events = {
-      "BufWinEnter",
-      "WinEnter",
-    },
+    -- Cursor follows focus when swapping buffers
+    cursor_follows_swapped_bufs = true,
   },
 }
