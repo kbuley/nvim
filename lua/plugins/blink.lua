@@ -11,7 +11,8 @@ return {
     },
     completion = {
       trigger = {
-        show_in_snippet = false,
+        prefetch_on_insert = false,
+        debounce_time = 1000, -- One second
       },
       list = {
         selection = {
@@ -30,12 +31,18 @@ return {
       },
     },
     sources = {
-      default = { "lsp", "copilot", "snippets", "path" },
+      default = { "lsp", "minuet", "copilot", "snippets", "path" },
       providers = {
         copilot = {
           name = "copilot",
           module = "blink-copilot",
           score_offset = 100,
+          async = true,
+        },
+        minuet = {
+          name = "minuet",
+          module = "minuet.blink",
+          score_offset = 8,
           async = true,
         },
       },

@@ -34,3 +34,9 @@ vim.keymap.del("n", "<C-/>")
 vim.keymap.set("n", "<C-/>", function()
   Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
+
+-- CodeCompanion
+vim.keymap.set("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "AI Chat" })
+vim.keymap.set("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "AI Actions" })
+vim.keymap.set({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "AI Inline" })
+vim.keymap.set("v", "<leader>as", "<cmd>CodeCompanionChat Add<cr>", { desc = "AI Add Selection" })

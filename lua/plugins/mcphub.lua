@@ -14,6 +14,11 @@ return {
       allow_file_read = true, -- Enable reading files
       allow_command_execution = true, -- Enable running commands
       allow_filesystem_operations = true, -- Enable file system operations like mkdir, rm, etc.
+      config = vim.fn.expand("~/.config/mcphub/servers.json"), -- Path to the configuration file
+      port = 37373, -- Port for the mcp-hub server,
+      workspace = {
+        enable = true, -- Enable workspace management
+      },
     })
   end,
 }
