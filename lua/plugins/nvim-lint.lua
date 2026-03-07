@@ -23,6 +23,9 @@ return {
             "$FILENAME",
           },
         },
+        yamllint = {
+          args = { "-d", "{extends: default, rules: {line-length: disable}}", "-" },
+        },
       },
     },
   },
