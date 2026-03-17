@@ -183,7 +183,6 @@ return {
         -- Default: Copilot (model set via adapters.http.copilot below)
         -- Switch adapters in-session with `ga` in the chat buffer.
         adapter = "copilot",
-        default_tool_group = "default",
         opts = {
           auto_submit_errors = true,
           auto_submit_success = true,
@@ -202,29 +201,49 @@ return {
           end,
         },
         tools = {
-          "tavily",
-          "files",
-          "grep_search",
-          "neovim",
-          "read_file",
-          "create_file",
-          "insert_edit_into_file",
-          "file_search",
-          "grep_search",
-          "list_code_usages",
-          "neovim",
-          "fetch_webpage",
-          "cmd_runner",
-          "web_search",
-          -- MCPhub tools/slash commands are injected via the extension below.
-          -- Custom inline tool: loads language rules from ~/.config/ai/context/
+          opts = {
+            default_tools = {
+              "default",
+              "agent_rules",
+            },
+          },
           agent_rules = agent_reader_tool,
-
-          -- delete_file is registered but requires approval even in yolo mode
           delete_file = {
             opts = {
               allowed_in_yolo_mode = false,
+              require_approval_before = true,
+              callback = "interactions.chat.tools.builtin.read_file",
             },
+          },
+          read_file = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.read_file" },
+          },
+          create_file = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.create_file" },
+          },
+          insert_edit_into_file = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.create_file" },
+          },
+          file_search = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.file_search" },
+          },
+          grep_search = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.grep_search" },
+          },
+          list_code_usages = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.list_code_usages" },
+          },
+          fetch_webpage = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.fetch_webpage" },
+          },
+          cmd_runner = {
+            opts = { require_approval_before = true, callback = "interactions.chat.tools.builtin.cmd_runner" },
+          },
+          web_search = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.web_search" },
+          },
+          get_changed_files = {
+            opts = { require_approval_before = false, callback = "interactions.chat.tools.builtin.get_changed_files" },
           },
           groups = {
             default = {
@@ -236,12 +255,12 @@ return {
                 "file_search",
                 "grep_search",
                 "list_code_usages",
-                "neovim",
                 "fetch_webpage",
                 "delete_file",
-                "agent_rules",
                 "cmd_runner",
                 "web_search",
+                "get_changed_files",
+                "neovim__execute_lua",
               },
             },
           },
